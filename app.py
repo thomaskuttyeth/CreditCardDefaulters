@@ -1,16 +1,14 @@
 import numpy as np 
 from flask import Flask, request,render_template 
 import joblib
-import preprocessing
+import main
 
 
-cols = preprocessing.features
+cols = main.feature_names
 
 app = Flask(__name__)
-model = joblib.load('model_jlib')
 
-def model_predict(model, test_row):
-    return model.predict([test_row])[0]
+
 @app.route('/')
 @app.route('/home',methods = ['GET'])
 def home():
