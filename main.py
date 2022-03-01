@@ -1,6 +1,13 @@
 # main.py
 import os
 import shutil 
+import pandas as pd
+from sklearn.ensemble import RandomForestClassifier,GradientBoostingClassifier,AdaBoostClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report 
+from dataloader import DataLoader
+from model import Model
+import applog
 
 try:
 	working_directory = r'C:\Users\ASUS\Documents\GitHub\CreditCardDefaulters'
@@ -15,15 +22,6 @@ else:
 	print('[INFO] Working directory is set')
 
 os.mkdir('models')
-
-
-import pandas as pd
-from sklearn.ensemble import RandomForestClassifier,GradientBoostingClassifier,AdaBoostClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report 
-from dataloader import DataLoader
-from model import Model
-import applog
 
 
 # dataloader class 
