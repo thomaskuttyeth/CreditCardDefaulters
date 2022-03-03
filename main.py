@@ -8,6 +8,8 @@ from sklearn.metrics import classification_report
 from dataloader import DataLoader
 from model import Model
 import applog
+import joblib
+import numpy as np
 
 try:
 	working_directory = r'C:\Users\ASUS\Documents\GitHub\CreditCardDefaulters'
@@ -68,3 +70,9 @@ classifier.make_result_csvs();
 
 
 
+print(X_test.iloc[0])
+final_model = joblib.load('models/RandomForestClassifier.sav')
+inp_arr = np.array(X_test.iloc[0])
+print(inp_arr)
+final_prediction = final_model.predict(np.array(X_test.iloc[0]).reshape(-1,1))
+print(final_prediction)
